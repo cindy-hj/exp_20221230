@@ -11,6 +11,7 @@ var mongoose = require('mongoose');
 var boardRouter = require('./routes/board');
 var memberRouter = require('./routes/member');
 var bookRouter = require('./routes/book');
+var itemRouter = require('./routes/item');
 
 var app = express();
 
@@ -33,6 +34,7 @@ mongoose.connection;
 app.use('/api/board', boardRouter);
 app.use('/api/member', memberRouter);
 app.use('/api/book', bookRouter);
+app.use('/api/item', itemRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
