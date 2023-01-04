@@ -95,7 +95,7 @@ router.get('/selectone.json', async function(req, res, next) {
 
         if(result !== null) { // 조회한 결과가 있으면
             result.regdate1 = moment(result.regdate).format("YYYY-MM-DD");
-            result.imageurl = `/api/board.image?_id=${no}`;
+            result.imageurl = `/api/board.image?_id=${no}&ts=${Date.now()}`;
 
             // 이전글
             // mongoDB에서.. $lt 작다, $gt 크다, $lte 작거나 같다, $gte 크거나 같다
@@ -167,7 +167,7 @@ router.get('/select.json', async function(req, res, next) {
         for(let tmp of result) {
             // format("YYYY-MM-DD DD:mm:ss")
             tmp.regdate1 = moment(tmp.regdate).format("YYYY-MM-DD");
-            tmp.imageurl = `/api/board.image?_id=${tmp._id}`;
+            tmp.imageurl = `/api/board/image?_id=${tmp._id}&ts=${Date.now()}`;
         }
 
         // 페이지네이션용 전체 개수(검색어가 포함된 개수)
